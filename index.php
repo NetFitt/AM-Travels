@@ -12,13 +12,10 @@
         <!--style sheet-->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lightslider.css">
-       
         <script src="js/jquery.js"></script>
         <!--jscript-->
-      
         <script src="js/jquery.js"></script>
         <script type="text/javascript" src="js/lightslider.js" ></script>
-        
         <!--google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
