@@ -1,0 +1,28 @@
+* {
+  @include prefixer(box-sizing, border-box, moz webkit);
+}
+
+.container {
+  margin: auto;
+  position: relative;
+  width: 90vw;
+  
+  @media  #{$minSmall} {
+    width: 87vw;
+  }
+  @media  #{$minMediaum} {
+    width: 88vw;
+  }
+  @media  #{$minLarge} {
+    width: 90vw;
+  }
+}
+@media screen and (max-width:767px) 
+  {
+    .container{
+      width: 85vw;
+    }
+    html{
+      font-size: 14px;
+    }
+  }

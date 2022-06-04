@@ -1,0 +1,390 @@
+// footer
+footer 
+{
+    margin-top: findrem(200);
+    background-color: black;
+    width: 100vw;
+    padding: 0 findrem(40);
+    position: relative;
+}
+//   start promotion
+.offer {
+    background-color: #34a5e4;
+    color: #fff;
+    width: 85%;
+    padding: 20px;
+    position: absolute;
+    top: -100px;
+    left: 7%;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .pro-text {
+        padding: 20px;
+        h2 {
+        font-size: 28px;
+        }
+        p {
+        font-size: 16px;
+        }
+    }
+    .get-offer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 8px 10px 10px;
+        width: findrem(420);
+        height: findrem(66);
+        background-color: #fff;
+        border-radius: 4px;
+        #email {
+        width: findrem(170);
+        height: findrem(31);
+        }
+        button {
+        background-color: #0f415c;
+        margin-left: 10px;
+        padding: 10px;
+        width: findrem(130);
+        height: findrem(55);
+        cursor: pointer;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 4px;
+        text-align: center;
+        @include prefixer(box-shadow, 0 12 40, moz webkit);
+        &:hover {
+            filter: brightness(120%);
+        }
+        &:focus {
+            outline: none;
+            background-color: #44b927;
+        }
+        }
+    }
+}
+//   end offer
+.first-contact{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+    max-width: 1340px;
+    margin: auto;
+    padding: findrem(80) 0px findrem(120);
+    border-bottom: 1px solid rgb(99, 99, 99);
+    .logo-desc {
+        grid-column: span 6 / auto;
+        margin-bottom: findrem(30);
+        img {
+            width: findrem(130);
+            margin-top: 10px;
+        }
+    }
+    .lpContainer{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: 30px;
+        max-width: 1340px;
+        grid-column: span 6 / auto;
+        .links {
+            grid-column: span 4 / auto;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            // justify-content: center;
+            h3 {
+                color: white;
+                margin-bottom: findrem(30);
+                line-height: findrem(30);
+                font-weight: 700;
+            }
+            li {
+                list-style: none;
+                a{
+                    font-size: findrem(20);
+                    line-height: findrem(35);
+                    color: rgb(231, 231, 231);
+                    text-decoration: none;
+                    cursor: pointer;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                } 
+            }
+        }
+        .post {
+            grid-column: span 4 / auto;
+            display: flex;
+            flex-direction: column;
+            h3 {
+                color: white;
+                margin-bottom: findrem(30);
+                line-height: findrem(30);
+                font-weight: 700;
+            }
+            p {
+                color: #707070;
+                font-size: findrem(18);
+                line-height: findrem(35);
+            }
+        }
+        .company{
+            grid-column: span 4 / auto;
+            display: flex;
+            flex-direction: column;
+            h3 {
+                color: white;
+                margin-bottom: findrem(30);
+                line-height: findrem(30);
+                font-weight: 700;
+            }
+            li {
+                list-style: none;
+                a{
+                    font-size: findrem(20);
+                    line-height: findrem(35);
+                    color: rgb(231, 231, 231);
+                    text-decoration: none;
+                    cursor: pointer;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                } 
+            } 
+        }
+    }
+}
+.sndContact{
+    margin: auto;
+    padding: 30px 0px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    .social-media {
+        display: flex;
+        padding: 10px;
+        .facebook {
+            display: flex;
+            cursor: pointer;
+            i {
+            font-size: findrem(25);
+            &:hover{
+                color: blue;
+            }
+            }
+            p {
+            margin-left: 7px;
+            color: #fff;
+            }
+        }
+        .Twitter {
+            display: flex;
+            margin-left: 20px;
+            cursor: pointer;
+            
+            i {
+                font-size: findrem(25);
+                &:hover{
+                    color: rgb(81, 196, 235);;
+                }
+            }
+            p {
+            margin-left: 7px;
+            color: #fff;
+            }
+        }
+        .Linkdin {
+            display: flex;
+            cursor: pointer;
+            margin-left: findrem(25);
+            i {
+                font-size: findrem(25);
+                &:hover{
+                    color: blue;
+                }
+            }
+            p {
+            margin-left: 7px;
+            color: #fff;
+            }
+        }
+        .Pintrest {
+            display: flex;
+            cursor: pointer;
+            margin-left: findrem(25);
+            i {
+                font-size: findrem(25);
+                &:hover{
+                    color: rgb(211, 76, 27);;
+                }
+            }
+            p {
+            margin-left: 7px;
+            color: #fff;
+            }
+        }
+    }
+    .copyright p{
+        font-size: findrem(16);
+        line-height: 24px;
+        color: rgb(246, 246, 251);
+        margin-left: findrem(15);
+        font-weight: 700;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+
+}
+// media footer
+@media (max-width: 1120px) {
+    .first-contact {
+        grid-template-columns: repeat(6, 1fr);
+        .lpContainer{
+            grid-template-columns: repeat(6, 1fr);
+            .post {
+                grid-column: span 2/auto;
+            }
+            .links{
+                grid-column: span 2/auto;
+            }
+            .company{
+                grid-column: span 2/auto;
+            }
+        }
+    }
+    .sndContact{
+        width: 100%;
+        display: block;
+    }
+    .logo-desc {
+        margin-top: 7%;
+        grid-column: span 12 / auto;
+    }
+    .social-media {
+        margin-bottom: findrem(40);
+        .Twitter {
+            margin-left: findrem(25);
+        }
+        .Pintrest {
+            margin-left: findrem(25);
+        }
+    }
+    .links {
+        grid-column: span 3 / auto;
+    }
+    .post{
+        grid-column: span 3 / auto;
+    }
+    .copyright p{
+        margin: findrem(20) 0px findrem(40) 0px;
+    }
+}
+// media 
+@media (max-width: 768px) 
+{
+.offer {
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: center;
+    // height: 150px;
+    // padding: 0 20px 20px;
+    // margin-bottom: 30px;
+    display: none;
+    .pro-text
+    {
+    width: 240px; 
+    padding-bottom: 10px;
+    H2 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 12px;
+    }
+    }
+    .get-offer {
+    padding: 10px;
+    button {
+        height: 35px;
+        width: 80px;
+        font-size: 12px;
+        padding: 10px;
+    }
+    }
+}
+.first-contact{
+    padding: findrem(20) 0 findrem(20) ;
+}
+.logo-desc {
+    margin-top: 7%;
+    text-align: start;
+}
+.lpContainer{
+    grid-template-columns: repeat(6, 1fr);
+    .post {
+        grid-column: span 3/auto;
+    }
+    .links{
+        grid-column: span 3/auto;
+        
+    }
+}
+.social-media {
+    .Twitter {
+        margin-left: findrem(15);
+    }
+    .Pintrest {
+        margin-left: findrem(15);
+    }
+}
+.links {
+    margin-top: 2%;
+}
+}
+// media
+@media (max-width: 500px) {
+.offer {
+    .pro-text
+    {
+    width: 200px; 
+    padding-bottom: 10px;
+    H2 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 12px;
+    }
+    }
+    .get-offer {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    #email{
+        width: 100px;
+        height: 20px;
+    }
+    button {
+        height: 20px;
+        width: 55px;
+        font-size: 5px;
+        padding: 5px;
+    }
+    }
+}
+.logo-desc {
+    margin-top: 7%;
+    text-align: start;
+}
+.social-media {
+    p{
+    display: none;
+    }
+    .Twitter {
+        margin-left: 10px;
+    }
+    .Pintrest {
+        margin-left: 10px;
+    }
+}
+}
