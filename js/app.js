@@ -13,7 +13,8 @@ const nav2 = document.getElementById('nav-2')
 const nav3 = document.getElementById('nav-3')
 const nav4 = document.getElementById('nav-4')
 const nav5 = document.getElementById('nav-5')
-const navItems = [nav1, nav2, nav3, nav4, nav5];
+const nav6 = document.getElementById('nav-6')
+const navItems = [nav1, nav2, nav3, nav4, nav5, nav6];
 //btns
 const prevbtn = document.querySelector('#prevBtn');
 const nextbtn = document.querySelector('#nextBtn');
@@ -70,7 +71,7 @@ window.addEventListener('scroll', () => {
 // nav bar animation
 function navanimate(direction1, direction2) {
     navItems.forEach((nav, i) => {
-        console.log(`slide-${direction1}-${i + 1}`, `slide-${direction2}-${i + 1}`);
+        // console.log(`slide-${direction1}-${i + 1}`, `slide-${direction2}-${i + 1}`);
         nav.classList.replace(`slide-${direction1}-${i + 1}`, `slide-${direction2}-${i + 1}`)
     })
 }

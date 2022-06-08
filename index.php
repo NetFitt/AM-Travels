@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +16,6 @@
         <!--style sheet-->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lightslider.css">
-        <script src="js/jquery.js"></script>
         <!--jscript-->
         <script src="js/jquery.js"></script>
         <script type="text/javascript" src="js/lightslider.js" ></script>
@@ -21,17 +24,46 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700&display=swap" rel="stylesheet">
     </head>
+    <style>
+        #horizontal {
+        padding-right: 35px;
+        justify-content: space-between;
+        }
+    </style>
 <body>    
     <header id="home">
         <nav class="nav-links" id="horizontal">
             <a href="#home" id="logo"><img class="logo" src="Images/Asset1.png" alt="logo"></a>
             <ul>
                 <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#About">ABOUT US</a></li>
                 <li><a href="#Blog">BLOGS</a></li>
-                <li><a href="#contuct">CONTACT</a></li>
+                <li><a href="pages/contact.php">CONTACT</a></li>
             </ul>
-            <div class="nav-btn"> <a href="login.php" id="create-btnlink">Create Account</a></div>
+            <div>
+            <?php
+                if(isset($_SESSION["user"])){
+                    ?>
+                    <div style="text-align:center;">
+                        <h5> <?php echo $_SESSION["user"]; ?></h5>
+                    </div>
+                    </div>
+                    <div style="margin-left:1vw;" class="nav-btn"> 
+                        <a href="logout.php"  id="logout" >logout</a>
+                    </div>
+                    <?php
+                }
+                else{
+                    ?>
+                    <div class="nav-btn"> 
+                        <a href="login.php" id="create-btnlink">Creat Account</a>
+                    </div>
+                </div>
+                    <?php
+                }
+            ?>
+            
+            
             <!-- menu bars -->
             <div class="menu-bars" id="menu-bars">
                 <div class="bar1"></div>
@@ -47,7 +79,14 @@
                 <li id="nav-2" class="slide-out-2"><a href="#about">About</a></li>
                 <li id="nav-3" class="slide-out-3"><a href="#Blog">Blogs</a></li>
                 <li id="nav-4" class="slide-out-4"><a href="#contact">Contact</a></li>
-                <li id="nav-5" class="slide-out-5"><a href="#home" id="logo"><img class="logo" src="Images/Asset1.png" alt="logo"></a></li>
+                <?php if(isset($_SESSION["user"])){ ?>
+                    <li id="nav-5" class="slide-out-5"><a href="includes/logout.php">logout</a></li>
+                <?php }else{
+                    ?>
+                    <li id="nav-5" class="slide-out-5"><a href="login.php">Create Account</a></li>
+                    <?php
+                } ?>
+                <li id="nav-6" class="slide-out-6"><a href="#home" id="logo"><img class="logo" src="Images/Asset1.png" alt="logo"></a></li>
                 </ul>
             </nav>
         </div>
@@ -56,19 +95,20 @@
             </h1><h2 data-aos="fade-up" data-text="In_Comfort...">In_Comfort...</h2>
             <p data-aos="fade-right">You do not have the right to remain silent… let us know what it takes to challenge you</p>
             <div class="inbox">
+                <!-- SEARCH -->
                 <div class="search-con">
-                    <div class="search">
-                        <i class="fa-solid fa-magnifying-glass"></i> 
-                        <input type="text" placeholder="searche destination">
-                    </div>
-                    <div style="background-color:#AFAEB4;width:1px;height: 27px;"></div>
                     <div class="location">
                         <i class="fa-solid fa-location-dot"></i>
-                        <input type="text" placeholder="C.location">
+                        <input id="location" type="text" placeholder="C.location"> 
                     </div> 
                 </div>
-                <button class="sub-btn" type="submit">Search</button>
+                <button class="sub-btn" id="sub" type="submit">Search</button>
             </div>
+            <div class="inbox">
+                <div style="display: flex;background-color: #fff;justify-content: space-around;align-items: center;width: 574px;color:black">
+                    <div id="data"></div> 
+                </div>
+            </div>    
         </div>
     </header>
     <main>
@@ -427,12 +467,46 @@
         </div>
         <!-- end of 2 footer > div -->
         <!-- copyright -->
+        
     </footer> 
     <script src="js/app.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        
+    $(document).on("keyup","#location",function(e){
+    e.preventDefault();
+	
+	let location = $("#location").val()	
+	
+	$.ajax({
+		url: "includes/search.inc.php",
+		method: "post",
+		data: {
+			location: location,
+		
+		
+		},
+		success: function(data,status ){
+            if(data.length >0){
+                console.log(data)
+                let res = $.parseJSON(data);
+                let html = "";
 
+                $("#data").html('')
+                res.result.forEach((element)=>{
+                     html = html.concat("<a style='padding:5px;display:block;' href="+element.url+">"+element.page+"</a>");
+                    console.log(html)
+                })
+                
+                $("#data").html(html)
+            }else{
+                $("#data").html('')
+            }
+		
+		}
+	})
+	
+});
     
     </script>
 </body>
