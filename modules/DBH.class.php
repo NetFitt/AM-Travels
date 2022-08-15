@@ -3,8 +3,8 @@
 
 class DBH{
     private $host="localhost";
-    private $user="mohamed";
-    private $pwd="123";
+    private $user="root";
+    private $pwd="";
     private $dbname="am-travel";
 
     protected function connect() {
